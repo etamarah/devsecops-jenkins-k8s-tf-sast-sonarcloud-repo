@@ -26,14 +26,14 @@ stage('Build Docker Image') {
             }
         }
 
-        stage('push') {
+   stage('Push Docker Image') {
             steps {
                 script {
-                   docker.withRegistry('https://390403884347.dkr.ecr.us-east-1.amazonaws.com', 'ecr:us-east-1:aws-credentials') {
-		   app.push("latest")
+                    docker.withRegistry('https://390403884347.dkr.ecr.us-east-1.amazonaws.com', 'ecr:us-east-1:aws-credentials') {
+                        app.push("latest")
+                    }
                 }
             }
-        }   
+        }
     }
-  }
-}
+}     
