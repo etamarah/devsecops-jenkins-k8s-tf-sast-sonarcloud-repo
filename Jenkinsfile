@@ -33,7 +33,7 @@ stage('Build Docker Image') {
 		   app.push("latest")
                 }
             }
-        }
-	   
- }
+        }   
+    }
+  }
 }
