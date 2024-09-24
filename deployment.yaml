@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name:tam_deploy
+  name: tam-deploy
 spec:
   replicas: 1
   selector:
@@ -18,21 +18,20 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
-# service type loadbalancer       
 ---
 apiVersion: v1
 kind: Service
 metadata:
+  name: tammy
   labels:
     app: tammy
     k8s-app: tammy
-  name: tammy
 spec:
+  type: LoadBalancer
   ports:
   - name: http
     port: 80
     protocol: TCP
     targetPort: 8080
-  type: LoadBalancer
   selector:
     app: tammy
